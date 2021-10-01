@@ -19,23 +19,7 @@
         "y": 40,
         "wires": [
             [
-                "9e39f187a67f3ad3"
-            ]
-        ]
-    },
-    {
-        "id": "9e39f187a67f3ad3",
-        "type": "hands-detection",
-        "z": "35670bd56bd78e34",
-        "name": "",
-        "order": 0,
-        "width": 6,
-        "height": 6,
-        "x": 320,
-        "y": 40,
-        "wires": [
-            [
-                "b43b95c2e7814f4e"
+                "ea5c57d1b5212f21"
             ]
         ]
     },
@@ -55,7 +39,7 @@
         "type": "websocket in",
         "z": "35670bd56bd78e34",
         "name": "",
-        "server": "f53c1081569394ed",
+        "server": "ed8f364a7d0b25c9",
         "client": "",
         "x": 120,
         "y": 100,
@@ -163,7 +147,20 @@
         "wires": []
     },
     {
-        "id": "f53c1081569394ed",
+        "id": "ea5c57d1b5212f21",
+        "type": "hand-detection",
+        "z": "35670bd56bd78e34",
+        "name": "",
+        "x": 320,
+        "y": 40,
+        "wires": [
+            [
+                "b43b95c2e7814f4e"
+            ]
+        ]
+    },
+    {
+        "id": "ed8f364a7d0b25c9",
         "type": "websocket-listener",
         "path": "/ws/handsdetection",
         "wholemsg": "false"
