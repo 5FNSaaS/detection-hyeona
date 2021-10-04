@@ -262,6 +262,11 @@ module.exports = function(RED) {
                   }
                   detail += "</table>";
                 }
+                
+                /* Save data immediately after timer runs */
+                poseData["regist"] = true;
+                poseData["poseName"] = handMotionName.value;
+                poseDataResult = poseData;
 
                 document.getElementById("motion-result-keypoint").innerHTML = '<br><b>' + motionName + "</b> Motion Detail <br><br>" + detail;
                 document.getElementById("motion-result-message").style.color = "green";
@@ -272,13 +277,12 @@ module.exports = function(RED) {
               }, second*1000);
             }
 
+            var poseDataResult;
             /* send pose data */
             document.getElementById("regist-btn").addEventListener('click', function () {
               document.getElementById("motion-result-message").style.color = "green";
               document.getElementById("motion-result-message").textContent = "[" + handMotionName.value + "] Data sent successfully! Check out the registration results!";
-              poseData["regist"] = true;
-              poseData["poseName"] = handMotionName.value;
-              ws.send(JSON.stringify(poseData));
+              ws.send(JSON.stringify(poseDataResult));
             })
 
             /* result message reset*/
